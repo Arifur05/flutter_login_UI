@@ -1,24 +1,18 @@
-import 'dart:ui';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_login_page/Screens/signup_page.dart';
+import 'package:flutter_login_page/Screens/login_page.dart';
 import 'package:flutter_login_page/Widgets/BezierContainer.dart';
 
-class LoginPage extends StatefulWidget {
-
-
+class SignUpPage extends StatefulWidget{
   @override
-  State<StatefulWidget> createState() => HomePage();
+  State<StatefulWidget> createState() => _SignUpPageState();
+
 }
 
-class HomePage extends State<LoginPage> {
-  static const String text = 'Login';
-  static const String text2 = 'please Login To Continue';
-
+class _SignUpPageState extends State<SignUpPage>{
+  static const String text = 'Create Account';
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -33,36 +27,39 @@ class HomePage extends State<LoginPage> {
                   right: -MediaQuery.of(context).size.width * .4,
                   child: BezierContainer()),
               Container(
-                child: SingleChildScrollView(
+                child:SingleChildScrollView(
                     child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(height: height * .015),
+                        Container(
+                          margin: const EdgeInsets.only(left: 24.0),
+                          child: IconButton(
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(Icons.arrow_back_rounded),
+                            iconSize: 35,
+                          ),
+                        ),
+                        SizedBox(height: height * .20),
+                        Container(
+                          margin: const EdgeInsets.only(left: 24.0),
+                          child:  Text(text,
+                              style: TextStyle(
+                                fontSize: 28.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              )),
+                        ),
 
-                    SizedBox(height: height * .25),
-                    Container(
-                      margin: const EdgeInsets.only(left: 24.0),
-                      child: const Text(text,
-                          style: TextStyle(
-                            fontSize: 28.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          )),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(left: 24.0),
-                      child: const Text(text2,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            color: Colors.black45,
-                          )),
-                    ),
-                    _emailPasswordWidget(),
-                    _loginButton(),
-                    SizedBox(height: height * .255),
-                    _createAccountLabel()
-                  ],
-                )),
+                        _emailPasswordWidget(),
+                        _signUpButton(),
+                        SizedBox(height: height * .070),
+                        _createAccountLabel()
+                      ],
+                    )),
               ),
             ],
           ),
@@ -70,6 +67,7 @@ class HomePage extends State<LoginPage> {
       ),
     );
   }
+
 
   Widget _inputTextField(String title, IconData icon) {
     return Container(
@@ -109,18 +107,20 @@ class HomePage extends State<LoginPage> {
   Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
+        _inputTextField('Name', Icons.person_outline_rounded),
         _inputTextField('Email', Icons.email_outlined),
         _inputTextField('Password', Icons.lock_outline_rounded),
+        _inputTextField('Confirm Password', Icons.lock_outline_rounded),
       ],
     );
   }
 
-  Widget _loginButton() {
+  Widget _signUpButton() {
     return Container(
       alignment: Alignment.centerRight,
       margin: const EdgeInsets.only(right: 24.0, top: 24.0),
       child: Material(
-          //elevation: 12.0,
+        //elevation: 12.0,
           child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
                 elevation: 12.0,
@@ -132,7 +132,7 @@ class HomePage extends State<LoginPage> {
               ),
               onPressed: () {},
               icon: const Text(
-                "Login",
+                "Sign UP",
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
               label: const Icon(
@@ -146,26 +146,24 @@ class HomePage extends State<LoginPage> {
   Widget _createAccountLabel() {
     return InkWell(
       onTap: (){
-        Navigator.push(
-        context, MaterialPageRoute(builder: (context) => SignUpPage()));
-
+        Navigator.pop(context);
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 20),
-        padding: const EdgeInsets.all(15),
+        margin: EdgeInsets.symmetric(vertical: 20),
+        padding: EdgeInsets.all(15),
         alignment: Alignment.bottomCenter,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             Text(
-              'Don\'t have an account ?',
+              'Already have an account ?',
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
             ),
             SizedBox(
               width: 10,
             ),
             Text(
-              'Register',
+              'Login',
               style: TextStyle(
                   color: Color(0xfff79c4f),
                   fontSize: 16.0,

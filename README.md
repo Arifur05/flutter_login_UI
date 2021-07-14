@@ -3,6 +3,14 @@
 A login page created using Flutter. This is for ui learning purpose.
 
 
+
+## Screenshots
+
+Login               |  Welcome  |  Register
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/Arifur05/flutter_login_signup/blob/master/screenshots/login.jpg?raw=true)|![](https://github.com/TheAlphamerc/flutter_login_signup/blob/master/screenshots/sign_up.jpg?raw=true)
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
