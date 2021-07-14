@@ -6,8 +6,8 @@ A login page created using Flutter. This is for ui learning purpose.
 
 ## Screenshots
 
-Login               |  Welcome  |  Register
-:-------------------------:|:-------------------------:|:-------------------------:
+Login               |   Register
+:-------------------------:|:-------------------------:
 ![](https://github.com/Arifur05/flutter_login_UI/blob/master/screenshots/login.jpg?raw=true)|![](https://github.com/TheAlphamerc/flutter_login_UI/blob/master/screenshots/sign_up.jpg?raw=true)
 
 
